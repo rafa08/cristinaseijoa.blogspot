@@ -1,26 +1,8 @@
-var app = angular.module("myApp", ['firebase']);
+var app = angular.module("myApp", ['firebase','angularUtils.directives.dirPagination']);
 
 app.controller("cursos", function ($scope, $filter, $firebaseArray) {
-    $scope.Sort = function (val) {
-        if ($scope.sort == val) {
-            $scope.reverse = !$scope.reverse;
-        }
-        $scope.sort = val;
-        $('th a').each(function () {
-            $(this).removeClass().addClass('icon-sort');
-        });
-
-    };
-
-    $scope.currentPage = 0;
-    $scope.pageSize = 6;
-    //$scope.cursos = [];
     var ref = firebase.database().ref().child('Cursos');
     $scope.cursos = $firebaseArray(ref);
-    //console.log($scope.cursos);
-    $scope.numberOfPages = function () {
-        return Math.ceil($scope.cursos.length / $scope.pageSize);
-    }
 });
 app.controller("Libros", function ($scope, $filter, $firebaseArray) {
     $scope.Sort = function (val) {
