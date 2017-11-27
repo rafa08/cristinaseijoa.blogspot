@@ -32,4 +32,6 @@ $(document).ready(function () {
         $("#ant").hide();
         $("#sig").fadeIn();
     });
+    
+    $('.collapsible').collapsible();
 });
