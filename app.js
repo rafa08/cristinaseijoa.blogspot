@@ -23,3 +23,8 @@ app.controller("Libros", function ($scope, $filter, $firebaseArray) {
         }
     };
 });
+
+app.controller("articulos", function ($scope, $filter, $firebaseArray) {
+    var ref = firebase.database().ref().child('Articulos');
+    $scope.articulos = $firebaseArray(ref);
+});
