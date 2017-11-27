@@ -9,6 +9,16 @@ app.controller("cursos", function ($scope, $filter, $firebaseArray) {
     $scope.cursos = $firebaseArray(ref);
 });
 app.controller("Libros", function ($scope, $filter, $firebaseArray) {
+    $scope.nombre = "";
     var ref = firebase.database().ref().child('Libros');
     $scope.libros = $firebaseArray(ref);
+
+    $scope.verLibros = function(link,nombre){
+        if(link != null){
+            window.open(link,"_blank");
+        }else{
+            $scope.nombre = nombre;
+            $('.modal').modal();
+        }
+    };
 });
