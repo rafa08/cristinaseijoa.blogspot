@@ -19,6 +19,7 @@ app.controller("Libros", function ($scope, $filter, $firebaseArray) {
         }else{
             $scope.nombre = nombre;
             $('.modal').modal();
+            $('#modal1').modal('open');   
         }
     };
 });
